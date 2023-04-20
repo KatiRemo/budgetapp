@@ -8,6 +8,8 @@ const generateRandomColor = () => {
   return `${existingBudgetLength * 34} 65% 50%`
 }
 
+export const wait = () => new Promise(res => setTimeout(res, Math.random() * 800 ));
+
   // delete user or item
 export const deleteItem = ({key}) => {
   return localStorage.removeItem(key)
