@@ -66,6 +66,20 @@ export async function dashboardAction({ request }){
       throw new Error ("There was a problem, expense could not be added")
     }
   }
+
+  if(_action === "deleteExpense") {
+    try {
+     // delete an expense
+      createExpense({
+        name: values.newExpense,
+        amount: values.newExpenseAmount,
+        budgetId: values.newExpenseBudget
+      })
+      return toast.success(`Expense ${values.newExpense} created`)
+    } catch(e) {
+      throw new Error ("There was a problem, expense could not be added")
+    }
+  }
 }
 
 const Dashboard = () => {
