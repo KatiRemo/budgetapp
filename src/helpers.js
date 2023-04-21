@@ -44,9 +44,16 @@ export const createExpense = ({
     budgetId: budgetId
   }
   
+  //local storage
   const existingExpenses = fetchData("expenses") ?? []
   return localStorage.setItem("expenses", 
     JSON.stringify([...existingExpenses, newItem]))
+}
+
+//get all items from local storage
+export const getAllMatchingItems = ({category, key, value}) => {
+  const data = fetchData(category) ?? [];
+  return data.filter((item) => item[key] === value);
 }
 
 // total spent by budget
