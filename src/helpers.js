@@ -78,3 +78,7 @@ export const formatPercentage = (amt) => {
     minimumFranctionDigits: 0
   })
 }
+
+// format date
+export const formatDateToLocaleString = (epoch) =>
+new Date(epoch).toLocaleDateString();
