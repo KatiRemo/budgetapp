@@ -10,6 +10,7 @@ const ExpenseItem = ({ expense }) => {
         key: "id",
         value: expense.budgetId
     })[0];
+
     return (
         <>
             <td>{expense.name}</td>
@@ -27,16 +28,8 @@ const ExpenseItem = ({ expense }) => {
             </td>
             <td>
                 <fetcher.Form method="post">
-                    <input
-                    type="hidden"
-                    name="_action"
-                    value="deleteExpense"
-                    />
-                    <input
-                    type="hidden"
-                    name="expenseId"
-                    value={expense.id}
-                    />
+                    <input type="hidden" name="_action" value="deleteExpense" />
+                    <input type="hidden" name="expenseId" value={expense.id} />
                     <button
                     type="submit"
                     className="btn btn--warning"
