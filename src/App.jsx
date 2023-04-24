@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // routes
 import Dashboard, { dashboardAction, dashboardLoader } from './pages/Dashboard';
 import Error from './pages/Error'
-import ExpensesPage, { expensesLoader } from './pages/ExpensesPage';
+import ExpensesPage, { expensesAction, expensesLoader } from './pages/ExpensesPage';
 
 // actions
 import { logoutAction } from './actions/logout';
@@ -37,6 +37,7 @@ const router = createBrowserRouter([
         path: "expenses",
         element: <ExpensesPage />,
         loader: expensesLoader,
+        action: expensesAction
       },
       {
         path: "logout",
