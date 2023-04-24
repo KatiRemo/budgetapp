@@ -10,11 +10,6 @@ const generateRandomColor = () => {
 
 export const wait = () => new Promise(res => setTimeout(res, Math.random() * 800 ));
 
-  // delete user or item
-export const deleteItem = ({key}) => {
-  return localStorage.removeItem(key)
-};
-
 // create a budget
 export const createBudget = ({
   name, amount
@@ -67,6 +62,16 @@ export const calculateSpentByBudget = (budgetId) => {
     return acc += expense.amount
   }, 0)
   return budgetSpent;
+}
+
+//delete item from local storage
+export const deleteItem = ({key, id}) => {
+  const existingData = fetchData(key);
+  if(id) {
+    const newData = existingData.filter((item) => item.id !== id)
+    return localStorage.setItem(key, JSON.stringify(newData));
+  }
+  return localStorage.removeItem(key);
 }
 
 // formatting currency
